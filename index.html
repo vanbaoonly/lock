@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Đếm ngược ngày tết</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2> <span id="n">00</span>-<span id="t">00</span>-<span id="nam">0000</span> </h2>
+        <div class="box_time">
+            <div id="day">00</div>
+            <div id="hour">00</div>
+            <div id="minute">00</div>
+            <div id="second">00</div>
+        </div>
+
+    </div>
+    <iframe allow='autoplay; encrypted-media' allowfullscreen='' frameborder='0' height='0'
+        src='https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1' width='0'></iframe>
+</body>
+<script>
+    var countDate = new Date('feb 11 , 2024 00:00:00').getTime();
+    newYear = () => {
+        var now = new Date().getTime();
+        gap = countDate - now;
+        //    
+        var second = 1000;
+        var minute = second * 60;
+        var hour = minute * 60;
+        var day = hour * 24;
+        // 
+        // var days = Math.floor(gap / (day)).toString().padStart(2, '0');
+        // var hours = Math.floor(gap % (day) / (hour)).toString().padStart(2, '0');
+        // var minutes = Math.floor(gap % (hour) / (minute)).toString().padStart(2, '0');
+        // var seconds = Math.floor(gap % (minute) / (second)).toString().padStart(2, '0');
+        var Time = new Date();
+        var month = Time.getMonth()
+        var year = Time.getFullYear()
+        var days = Time.getDate();
+        var hours = Time.getHours();
+        var minutes = Time.getMinutes();
+        var seconds = Time.getSeconds();
+        // 
+        document.getElementById('day').innerHTML = days;
+        document.getElementById('hour').innerHTML = hours;
+        document.getElementById('minute').innerHTML = minutes;
+        document.getElementById('second').innerHTML = seconds;
+
+        document.getElementById('n').innerHTML = days;
+        document.getElementById('t').innerHTML = month + 1;
+        document.getElementById('nam').innerHTML = year;
+
+    }
+    setInterval(() => {
+        newYear();
+    }, 1000);
+</script>
+
+</html>
